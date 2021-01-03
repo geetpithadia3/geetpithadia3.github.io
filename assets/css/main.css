@@ -64,7 +64,8 @@ img {
 }
 
 .container {
-  padding: 11px 15px
+  padding: 11px 15px;
+  width: 100%
 }
 blockquote, q {
 	quotes: none;
