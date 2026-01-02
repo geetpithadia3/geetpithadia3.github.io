@@ -1,5 +1,5 @@
 ---
-{"publish":true,"title":"Welcome","description":"Personal website and digital garden","created":"2026-01-02T11:29:07.441-05:00","modified":"2026-01-02T11:41:48.416-05:00","cssclasses":""}
+{"publish":true,"description":"Personal website and digital garden","created":"2026-01-02T11:41:48.416-05:00","modified":"2026-01-02T12:33:58.210-05:00","cssclasses":""}
 ---
 
 
