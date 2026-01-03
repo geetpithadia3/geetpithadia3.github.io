@@ -2,9 +2,6 @@
 {"publish":true,"title":"Personal Spending Tracker","description":"A sample project entry","created":"2024-01-01","modified":"2026-01-02T11:30:26.623-05:00","tags":["project"],"cssclasses":""}
 ---
 
-
-# Personal Spending Tracker (name yet to be finalized)
-
 This is an example project entry. Replace this with your own projects!
 
 ## Project Details

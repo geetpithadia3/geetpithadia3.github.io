@@ -3,14 +3,9 @@
 ---
 
 
-# Thoughts
 
-A space for random thoughts, reflections, and ideas that don't fit elsewhere.
-
-## About This Space
-
+A space for random thoughts, reflections, and ideas that don't fit elsewhere. 
 These are my musings, observations, and reflections on various topics.
 
 ---
 
-*All thoughts in this folder will appear in the list below.*

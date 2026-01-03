@@ -1,8 +1,7 @@
 ---
-title: Hey!
-description: Personal website and digital garden
-enableToc: false
+{"publish":true,"title":"home","description":"Personal website and digital garden","created":"2026-01-03T14:13:20.405-05:00","modified":"2026-01-03T14:16:22.429-05:00","cssclasses":""}
 ---
+
 
 
 Welcome to my digital garden! 🌱
