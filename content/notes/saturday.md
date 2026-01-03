@@ -1,7 +1,8 @@
 ---
-{"publish":true,"title":"saturday","created":"2026-01-03T14:02:15.084-05:00","modified":"2026-01-03T14:02:59.841-05:00","cssclasses":""}
+publish: true
+title: saturday
+cssclasses: ""
 ---
-
 
 A lovely saturday captured in three moments.
 

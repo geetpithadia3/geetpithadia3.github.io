@@ -105,8 +105,6 @@ function createFolderNode(
   const li = clone.querySelector("li") as HTMLLIElement
   const folderContainer = li.querySelector(".folder-container") as HTMLElement
   const titleContainer = folderContainer.querySelector("div") as HTMLElement
-  const folderOuter = li.querySelector(".folder-outer") as HTMLElement
-  const ul = folderOuter.querySelector("ul") as HTMLUListElement
 
   const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
@@ -123,28 +121,6 @@ function createFolderNode(
   } else {
     const span = titleContainer.querySelector(".folder-title") as HTMLElement
     span.textContent = node.displayName
-  }
-
-  // if the saved state is collapsed or the default state is collapsed
-  const isCollapsed =
-    currentExplorerState.find((item) => item.path === folderPath)?.collapsed ??
-    opts.folderDefaultState === "collapsed"
-
-  // if this folder is a prefix of the current path we
-  // want to open it anyways
-  const simpleFolderPath = simplifySlug(folderPath)
-  const folderIsPrefixOfCurrentSlug =
-    simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
-
-  if (!isCollapsed || folderIsPrefixOfCurrentSlug) {
-    folderOuter.classList.add("open")
-  }
-
-  for (const child of node.children) {
-    const childNode = child.isFolder
-      ? createFolderNode(currentSlug, child, opts)
-      : createFileNode(currentSlug, child)
-    ul.appendChild(childNode)
   }
 
   return li
@@ -205,14 +181,13 @@ async function setupExplorer(currentSlug: FullSlug) {
     const explorerUl = explorer.querySelector(".explorer-ul")
     if (!explorerUl) continue
 
-    // Create and insert new content
+    // Create and insert new content - only folders, no files
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
-      const node = child.isFolder
-        ? createFolderNode(currentSlug, child, opts)
-        : createFileNode(currentSlug, child)
-
-      fragment.appendChild(node)
+      if (child.isFolder) {
+        const node = createFolderNode(currentSlug, child, opts)
+        fragment.appendChild(node)
+      }
     }
     explorerUl.insertBefore(fragment, explorerUl.firstChild)
 
@@ -247,14 +222,6 @@ async function setupExplorer(currentSlug: FullSlug) {
         window.addCleanup(() => button.removeEventListener("click", toggleFolder))
       }
     }
-
-    const folderIcons = explorer.getElementsByClassName(
-      "folder-icon",
-    ) as HTMLCollectionOf<HTMLElement>
-    for (const icon of folderIcons) {
-      icon.addEventListener("click", toggleFolder)
-      window.addCleanup(() => icon.removeEventListener("click", toggleFolder))
-    }
   }
 }
 
@@ -268,22 +235,6 @@ document.addEventListener("prenav", async () => {
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const currentSlug = e.detail.url
   await setupExplorer(currentSlug)
-
-  // if mobile hamburger is visible, collapse by default
-  for (const explorer of document.getElementsByClassName("explorer")) {
-    const mobileExplorer = explorer.querySelector(".mobile-explorer")
-    if (!mobileExplorer) return
-
-    if (mobileExplorer.checkVisibility()) {
-      explorer.classList.add("collapsed")
-      explorer.setAttribute("aria-expanded", "false")
-
-      // Allow <html> to be scrollable when mobile explorer is collapsed
-      document.documentElement.classList.remove("mobile-no-scroll")
-    }
-
-    mobileExplorer.classList.remove("hide-until-loaded")
-  }
 })
 
 window.addEventListener("resize", function () {
