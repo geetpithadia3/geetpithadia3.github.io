@@ -1,5 +1,5 @@
 ---
-title: Welcome
+title: Hey!
 description: Personal website and digital garden
 enableToc: false
 ---
