@@ -1,5 +1,5 @@
 ---
-{"publish":true,"title":"home","description":"Personal website and digital garden","created":"2026-01-03T14:46:31.577-05:00","modified":"2026-01-03T14:46:31.577-05:00","cssclasses":""}
+{"publish":true,"title":"home","description":"Personal website and digital garden","created":"2026-01-04T21:21:34.571-05:00","modified":"2026-01-04T21:21:34.571-05:00","cssclasses":""}
 ---
 
 
@@ -19,4 +19,3 @@ This is a space where I share my thoughts, notes, and learnings. Feel free to ex
 - [[notes/\|Notes]] - Learning notes and study materials
 - [[projects/\|Projects]] - My projects and work
 - [[thoughts/\|Thoughts]] - Random thoughts and reflections
-- [[books/\|Books]] - Books I've read and want to read
